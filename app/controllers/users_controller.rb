@@ -17,10 +17,11 @@ class UsersController < ApplicationController
 		@user = User.find(@id)
 	end
 
-	def delete
+	def destroy
 		u = User.find(params[:id])
-		if @u.destroy
+		if u.destroy
  			flash[:notice] = "User deleted successfully."
+ 			redirect_to home_path
  		else
  			flash[:alert] = "There was a problem deleting the user."
  			redirect_to home_path
@@ -52,7 +53,7 @@ class UsersController < ApplicationController
  		 user = User.find(params[:id])
  		if user.update(params[:user])
  			flash[:notice] = "Your account was updated"
- 			redirect user_path user
+ 			redirect_to user_path user
  		else
  			flash[:notice] + "There was an error updating your account. Please try again."
  			redirect_to edit_user_path_user

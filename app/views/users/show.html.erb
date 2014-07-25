@@ -1,7 +1,5 @@
-<% @user.fname %> | <%=
+<% @user.first_name %> | <%=
 	link_to "delete", user_path(@user.id), method: :delete %>
 
-<% @user.fname %> | <%=
-	link_to "edit", user_path(@user.id), method: :edit %>
-
-<%= User.find(@id).fname %>
+<% @user.first_name %> | <%=
+	link_to "edit", edit_user_path(@user.id) %>

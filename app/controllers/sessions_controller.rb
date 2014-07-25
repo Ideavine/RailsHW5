@@ -4,10 +4,11 @@ class SessionsController < ApplicationController
  	end
  #processes data from login form
  	def create
-		@user = User.where(email: params[:email]).first
-		if @user && @user.password == params[:password]
-		session[:user_id] = @user.id
-		redirect_to home_path
+		user = User.where(username: params[:username]).first
+		# user = User.where(:username => params[:username]).first
+		if user && user.password == params[:password]
+		  session[:user_id] = user.id 
+		  return redirect_to in_path
 		end
  	end
  	

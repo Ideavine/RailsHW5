@@ -9,11 +9,12 @@
 <body>
 	<h1>Hello World</h1>
 
-	<%= form_tag("/search", method: "get") do %>
-	 <%=label_tag(:query, "Search:") %>
-	 <%=text_field_tag(:query) %>
-	 <%=submit_tag("Submit") %>
-	<% end %>
+<%= form_tag("/sessions") do %>
+	 	<input type= "text" name="username" placeholder="username">
+	 	<input type= "password" name="password" placeholder="password">
+	 	<button type="login">login</button>
+	 	
+<% end %>
 
 	<%=yield %>
 
