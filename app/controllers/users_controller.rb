@@ -60,8 +60,6 @@ class UsersController < ApplicationController
  		end
  	end
 
- 	def greet
- 		return "hello, #{fname}#"
- 	end
+ 	
 
 end
