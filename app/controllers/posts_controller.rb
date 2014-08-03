@@ -22,12 +22,12 @@ class PostsController < ApplicationController
 	def index
 		# @ is an instance variable, we do this to pass it to the controller
 		@user = User.find(params[:user_id])
-		@post = @user.posts
- 		if @posts.present?
- 			flash[:notice] = "Posts displayed successfully."
- 		else
- 			flash[:alert] = "Sorry, there were no posts to display."
- 		end
+		# @post = @user.posts
+ 	# 	if @posts.present?
+ 	# 		flash[:notice] = "Posts displayed successfully."
+ 	# 	else
+ 	# 		flash[:alert] = "Sorry, there were no posts to display."
+ 		
 	end
 
 
@@ -47,9 +47,11 @@ class PostsController < ApplicationController
  			redirect_to home_path
 		end
 	end
+
 # posts/new
 	def new
-		@post = Post.new
+		@user = User.find(params[:user_id])
+		@post =  @user.posts.new(params[:id])
 	end
 
 	def create

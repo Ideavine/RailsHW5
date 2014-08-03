@@ -1,4 +1,9 @@
+<% @user.posts.each do |p| %>
+	<ul>
+	<li><%= p.post_title %>:<%= p.post_text %></li>
+	</ul>
+<% end %>
 
-<%= @user.posts.all %>
+
 
 
